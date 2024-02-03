@@ -1,0 +1,38 @@
+var spd = 5; //Rychlost pohybu
+var obj = wall; //Vyhýbání se objektům, zadejte název objektu
+
+if (keyboard_check(vk_up))
+{
+    if (!place_meeting(x, y-spd, obj))
+    {
+        y -= spd;
+    }
+}
+if (keyboard_check(vk_right))
+{
+    if (!place_meeting(x+spd, y, obj))
+    {
+        x += spd;
+    }
+}
+if (keyboard_check(vk_down))
+{
+    if (!place_meeting(x, y+spd, obj))
+    {
+        y += spd;
+    }
+}
+if (keyboard_check(vk_left)){
+
+    if (!place_meeting(x-spd, y, obj))
+    {
+        x -= spd;
+    }
+}
+//Program pro border místnosti
+if (x < 0) x = 0;
+if (y < 0) y = 0;
+if (x + sprite_width > room_width) x = room_width - sprite_width;
+if (y + sprite_height > room_height) y = room_height - sprite_height;
+
+
